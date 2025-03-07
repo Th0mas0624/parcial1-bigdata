@@ -1,0 +1,7 @@
+Para ver configuracion actual: 
+
+- aws lambda get-function-configuration --function-name parcial1-bigdata-lambda1 --region us-east-1 --query "Timeout"
+
+Para configurar timeout:
+
+- aws lambda update-function-configuration --function-name parcial1-bigdata-lambda1 --region us-east-1 --timeout 600

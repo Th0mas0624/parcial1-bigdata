@@ -1,0 +1,6 @@
+venv/
+*pyc*
+*py_cache*
+*pycache*
+configuration_timemout.txt
+test.py

@@ -1,0 +1,49 @@
+{
+    "lambda1": {
+        "app_function": "lambda_html.download_pages",
+        "aws_region": "us-east-1",
+        "exclude": [
+            "boto3",
+            "dateutil",
+            "botocore",
+            "s3transfer",
+            "concurrent"
+        ],
+        "profile_name": "default",
+        "project_name": "parcial1-bigdata",
+        "runtime": "python3.10",
+        "s3_bucket": "zappa-parcial-lambda1",
+        "keep_warm": false,
+        "apigateway_enabled": false,
+        "manage_roles": false,
+        "role_name": "LabRole",
+        "timeout": 600,
+        "events": [
+          {
+            "function": "lambda_html.download_pages",
+            "expression": "cron(0 13 ? * FRI *)"
+        }]
+    },
+    
+    "lambda2": {
+        "app_function": "lambda_csv.process_html",
+        "aws_region": "us-east-1",
+        "exclude": [
+            "boto3",
+            "dateutil",
+            "botocore",
+            "s3transfer",
+            "concurrent"
+        ],
+        "profile_name": "default",
+        "project_name": "parcial1-bigdata",
+        "runtime": "python3.10",
+        "s3_bucket": "zappa-parcial-lambda2",
+        "keep_warm": false,
+        "apigateway_enabled": false,
+        "manage_roles": false,
+        "role_name": "LabRole",
+        
+    }
+    
+}
