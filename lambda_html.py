@@ -14,21 +14,6 @@ HEADERS = {
     "Referer": "https://www.google.com/",
 }
 
-def invoke_lambda2():
-    """
-    Invoca la función lambda2 después de completar la descarga de HTML.
-    """
-    lambda_name = "parcial1-bigdata-lambda2"  # Nombre en AWS Lambda
-
-    try:
-        response = lambda_client.invoke(
-            FunctionName=lambda_name,
-            InvocationType="Event"  # Asíncrono
-        )
-        print(f"Lambda2 invocada con éxito: {response}")
-    except Exception as e:
-        print(f"Error al invocar Lambda2: {str(e)}")
-
 def download_pages():
     url_base = "https://casas.mitula.com.co/find?operationType=sell&propertyType=mitula_studio_apartment&geoId=mitula-CO-poblacion-0000014156&text=Bogot%C3%A1%2C++%28Cundinamarca%29&page="
     today = datetime.date.today().strftime("%Y-%m-%d")
@@ -52,8 +37,7 @@ def download_pages():
     
         time.sleep(3)
         
-    print("Descarga completada. Invocando lambda2...")
-    invoke_lambda2()  # Llamar a Lambda2 después de completar la descarga
+    print("Descarga completada.")
 
     return {"status": "ok"}
 

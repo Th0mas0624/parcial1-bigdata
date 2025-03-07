@@ -17,11 +17,11 @@
         "apigateway_enabled": false,
         "manage_roles": false,
         "role_name": "LabRole",
-        "timeout": 600,
+        "timeout_seconds": 600,
         "events": [
           {
             "function": "lambda_html.download_pages",
-            "expression": "cron(0 13 ? * FRI *)"
+            "expression": "cron(0 14 ? * MON *)"
         }]
     },
     
@@ -43,6 +43,16 @@
         "apigateway_enabled": false,
         "manage_roles": false,
         "role_name": "LabRole",
+        "events": [
+          {
+            "function": "lambda_csv.process_html",
+            "event_source": {
+                  "arn":  "arn:aws:s3:::landing-casas-lambda1",
+                  "events": [
+                    "s3:ObjectCreated:*"
+                  ]
+               }
+            }]
         
     }
     
